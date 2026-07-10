@@ -58,6 +58,8 @@ main(int argc, char *argv[])
 		break;
 	case '1':
 		done = 1;
+                break;
+        case 's':
 		break;
 	default:
 		usage();
