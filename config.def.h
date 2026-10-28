@@ -32,6 +32,10 @@ static const char unknown_str[] = "n/a";
  * ipv4                IPv4 address                    interface name (eth0)
  * ipv6                IPv6 address                    interface name (eth0)
  * kernel_release      `uname -r`                      NULL
+ * keyboard_indicators caps/num lock indicators        format string (c?n?)
+ *                                                     see keyboard_indicators.c
+ * keymap              layout (variant) of current     NULL
+ *                     keymap
  * load_avg            load average                    NULL
  * netspeed_rx         receive network speed           interface name (wlan0)
  * netspeed_tx         transfer network speed          interface name (wlan0)
@@ -61,6 +65,11 @@ static const char unknown_str[] = "n/a";
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
  */
 static const struct arg args[] = {
-	/* function format          argument */
-	{ datetime, "%s",           "%F %T" },
+	/* function        format           argument */
+	{ datetime,        "%s | ",         "%F %T" },
+	{ cpu_perc,        "CPU: %s\% | ",  NULL },
+	{ ram_used,        "RAM: %s/",      NULL },
+	{ ram_total,       "%s | ",         NULL },
+	{ disk_used,       "root: %s/",     "/" },
+	{ disk_total,      "%s",            "/" },
 };
